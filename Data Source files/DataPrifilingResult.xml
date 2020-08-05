@@ -1,0 +1,478 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{219A19ED-6597-436A-9EF7-8268860A0B49}" Name="DataPrifilingResult.xml">
+      <DtsConnectionManagerID>DataPrifilingResult.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{0FADEBAA-835D-489E-8A0D-FC70B244FF81}" Name="DataProfileSourceFile.csv">
+      <DtsConnectionManagerID>DataProfileSourceFile.csv</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{B9996044-5610-47EC-9581-928CE3D9A682}" Name="Source Data CM">
+      <DtsConnectionManagerID>Source Data CM</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}" Name="RMSCOMPUTER_RMSSQL.Customer">
+      <DtsConnectionManagerID>RMSCOMPUTER_RMSSQL.Customer</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table Schema="dbo" Table="DataProfiling" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table Schema="dbo" Table="DataProfiling" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table Schema="dbo" Table="DataProfiling" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table Schema="dbo" Table="DataProfiling" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table Schema="dbo" Table="DataProfiling" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table Schema="dbo" Table="DataProfiling" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="-1" />
+        <Column Name="Code" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="FirstName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="LastName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="Amount" SqlDbType="Money" MaxLength="0" Precision="19" Scale="4" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="SaleDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="Email" SqlDbType="NVarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="Amount" SqlDbType="Money" MaxLength="0" Precision="19" Scale="4" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>110.0000</MinValue>
+        <MaxValue>1560.0000</MaxValue>
+        <Mean>730.1</Mean>
+        <StdDev>496.560217899098</StdDev>
+      </ColumnStatisticsProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="SaleDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>2009-02-06T00:00:00.0000000</MinValue>
+        <MaxValue>2019-02-09T00:00:00.0000000</MaxValue>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="Code" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>4</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="FirstName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>7</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="LastName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>5</MinLength>
+        <MaxLength>7</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="Email" SqlDbType="NVarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>12</MinLength>
+        <MaxLength>12</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>6</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="Code" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <NumberOfDistinctValues>5</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>C100</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>C101</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>C102</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>C105</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>C106</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <KeyColumns>
+          <Column Name="FirstName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="FirstName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>6</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>AMIT</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>KRISHNA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Naina</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>NAMAN</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>POOJA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ROHIT</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="LastName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>5</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>AGARWAL</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>GUPTA</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Kulpati</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>PATEL</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SHARMA</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <KeyColumns>
+          <Column Name="SaleDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="SaleDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>6</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>2009-02-06T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2016-05-05T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2017-09-09T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2018-07-08T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2018-08-08T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>2019-02-09T00:00:00.0000000</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <KeyColumns>
+          <Column Name="Email" SqlDbType="NVarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="Email" SqlDbType="NVarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>6</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>ag@gmail.com</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ka@gmail.com</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>nk@gmail.com</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>np@gmail.com</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>ps@gmail.com</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>rs@gmail.com</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="Code" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>C10\d</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="FirstName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>KRISHNA</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>NAMAN</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>NAINA</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>ROHIT</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>POOJA</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>AMIT</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="LastName" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>SHARMA</RegexText>
+            <Frequency>33</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>KULPATI</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>AGARWAL</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>GUPTA</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>PATEL</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}</DataSourceID>
+        <Table DataSource="RMSCOMPUTER\RMSSQL" Database="Customer" Schema="dbo" Table="DataProfiling" RowCount="6" />
+        <Column Name="Email" SqlDbType="NVarChar" MaxLength="500" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>KA@GMAIL.COM</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>AG@GMAIL.COM</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>RS@GMAIL.COM</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>PS@GMAIL.COM</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>NK@GMAIL.COM</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>NP@GMAIL.COM</RegexText>
+            <Frequency>17</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

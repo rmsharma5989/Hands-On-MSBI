@@ -1,0 +1,7 @@
+Code,FirstName,LastName,Amount,SaleDate,Email address
+C100,ROHIT,SHARMA,590.6,7/8/2018,rs@gmail.com
+C101,AMIT,GUPTA,960,9/9/2017,ag@gmail.com
+C102,POOJA,SHARMA,200,5/5/2016,ps@gmail.com
+C100,Naina,Kulpati,1560,8/8/2018,nk@gmail.com
+C105,NAMAN,PATEL,960,2/6/2009,np@gmail.com
+C106,KRISHNA,AGARWAL,110,2/9/2019,ka@gmail.com

@@ -1,0 +1,5 @@
+Code,FirstName,LastName,Amount,SaleDate,Country,State,SalesPerson,Product
+C104,Rahul,Kumar,-600.80,08/08/2001,Dubai,Sarjah,John,HouseHolds
+C105,Naman,Patel,960,02/06/2009,India,Rajasthan,Peter,KitchenWares
+C106,Krishna,Agarwal,110,02/09/2019,Dubai,Abu Dhabi,Jasmine,Electronics
+C107,Sumit,Mathur,SixHundred,01/01/2018,France,Corsica,Swati,Fitness

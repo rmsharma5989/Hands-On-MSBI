@@ -1,0 +1,10 @@
+StateID,CountryID,StateName
+1,1,Rajasthan
+2,1,Manarastra
+3,2,GandakiPradesh
+4,3,Florida
+5,3,New York
+6,4,Brittany
+7,4,Corsica
+8,5,Sarjah
+9,5,Abu Dhabi

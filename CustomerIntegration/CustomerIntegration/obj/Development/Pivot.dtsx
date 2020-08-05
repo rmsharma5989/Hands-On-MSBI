@@ -1,0 +1,1986 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/2/2020 2:36:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RMSCOMPUTER"
+  DTS:CreatorName="RMSCOMPUTER\44QRQZ1"
+  DTS:DTSID="{7A4DC462-29C5-4337-BBE4-BB0CEB48996E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Pivot"
+  DTS:PackageType="5"
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{5995D115-C161-4178-94C6-27CD609C957C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.Customer]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{87772F0A-8BC8-4D85-A0B0-4291BED7824B}"
+      DTS:ObjectName="RMSCOMPUTER\RMSSQL.Customer">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=RMSCOMPUTER\RMSSQL;Initial Catalog=Customer;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow to pivot the table data from database"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{2C0270BB-0846-4639-B899-F8E2FEA4F736}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow to pivot the table data from database"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow to pivot the table data from database\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSalesPersonPivotDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.Customer]"
+                  connectionManagerRefId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.Customer]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesPersonName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SalesPersonName"
+                      externalMetadataColumnId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
+                      lineageId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output].Columns[SalesPersonName]" />
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[C_JoiningDate_Value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="C_JoiningDate_Value"
+                      externalMetadataColumnId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JoiningDate]"
+                      lineageId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output].Columns[C_JoiningDate_Value]" />
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[C_Salary_Value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="C_Salary_Value"
+                      externalMetadataColumnId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                      lineageId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output].Columns[C_Salary_Value]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SalesPersonName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JoiningDate]"
+                      dataType="dbTimeStamp"
+                      name="JoiningDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                      dataType="cy"
+                      name="Salary" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow to pivot the table data from database\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSalesPersonDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.Customer]"
+                  connectionManagerRefId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.Customer]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[DimSalesPersonDetailsID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DimSalesPersonDetailsID]"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[DimSalesPersonDetailsID]"
+                      name="DimSalesPersonDetailsID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      name="SalesPersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[Property]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Property]"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[Property]"
+                      name="Property"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]"
+                      name="Value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[isActive]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[isActive]"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[isActive]"
+                      name="isActive"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonName]"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonName]"
+                      name="SalesPersonName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DimSalesPersonDetailsID]"
+                      dataType="i4"
+                      name="DimSalesPersonDetailsID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Property]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Property" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[isActive]"
+                      dataType="i4"
+                      name="isActive" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SalesPersonName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DimSalesPersonDetailsID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DimSalesPersonDetailsID]"
+                      name="DimSalesPersonDetailsID" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      name="SalesPersonID" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Property]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Property]"
+                      name="Property" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Value]"
+                      name="Value" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[isActive]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[isActive]"
+                      name="isActive" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesPersonName]"
+                      name="SalesPersonName" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow to pivot the table data from database\Pivot"
+              componentClassID="Microsoft.Pivot"
+              contactInfo="Pivot;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Compacts an input data flow by pivoting it on a column value, making it less normalized. The input data should be sorted by the pivot column because a pivot happens each time data in the pivot column changes. Note: duplicate rows will cause this transformation to fail."
+              name="Pivot"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Causes the Pivot Transform to ignore rows containing unrecognized values in the Pivot Key column and to report the complete list of unmatched values at the end of DataFlow execution. Useful for collecting a list of values from input rows that can be used to automatically generate output columns."
+                  name="PassThroughUnmatchedPivotKeys">false</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow to pivot the table data from database\Pivot.Inputs[Pivot Default Input]"
+                  hasSideEffects="true"
+                  name="Pivot Default Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Pivot.Inputs[Pivot Default Input].Columns[Property]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Property"
+                      lineageId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[Property]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Pivot.Inputs[Pivot Default Input].Columns[SalesPersonName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SalesPersonName"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[SalesPersonName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Pivot.Inputs[Pivot Default Input].Columns[Value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Value"
+                      lineageId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[Value]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Describes how the input column participates in the pivot operation. It can help define a set of related records, it can hold the key that uniquely identifies a row within the related set and upon which the values are pivoted, it can hold a value that gets transferred into a pivoted column or it can contain a value that simply passes straight though the pivot unchanged."
+                          name="PivotUsage">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output]"
+                  name="Pivot Default Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output].Columns[SalesPersonName]"
+                      name="SalesPersonName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[SalesPersonName]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output].Columns[C_JoiningDate_Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output].Columns[C_JoiningDate_Value]"
+                      name="C_JoiningDate_Value">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[Value]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">JoiningDate</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output].Columns[C_Salary_Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output].Columns[C_Salary_Value]"
+                      name="C_Salary_Value">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage identifier of an input column that contains a PivotedValue or the value -1. The value -1 indicates the column is not used in a pivot operation"
+                          name="SourceColumn">#{Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[Value]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies a value that matches one of the possible values from the input column that is marked as the pivot key by the PivotUsage property."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Salary</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Pivot Error Output"
+                  synchronousInputId="Package\Data Flow to pivot the table data from database\Pivot.Inputs[Pivot Default Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow to pivot the table data from database\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow to pivot the table data from database\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Inputs[Sort Input].Columns[DimSalesPersonDetailsID]"
+                      cachedDataType="i4"
+                      cachedName="DimSalesPersonDetailsID"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[DimSalesPersonDetailsID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Inputs[Sort Input].Columns[SalesPersonID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonID"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Inputs[Sort Input].Columns[Property]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Property"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[Property]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Inputs[Sort Input].Columns[Value]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="Value"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Inputs[Sort Input].Columns[isActive]"
+                      cachedDataType="i4"
+                      cachedName="isActive"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[isActive]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Inputs[Sort Input].Columns[SalesPersonName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SalesPersonName"
+                      lineageId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[DimSalesPersonDetailsID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[DimSalesPersonDetailsID]"
+                      name="DimSalesPersonDetailsID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[DimSalesPersonDetailsID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[SalesPersonID]"
+                      name="SalesPersonID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[Property]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[Property]"
+                      name="Property">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[Property]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[Value]"
+                      name="Value">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[Value]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[isActive]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[isActive]"
+                      name="isActive">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[isActive]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output].Columns[SalesPersonName]"
+                      name="SalesPersonName"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesPersonName]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow to pivot the table data from database.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow to pivot the table data from database\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow to pivot the table data from database\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow to pivot the table data from database.Paths[Pivot Default Output]"
+              endId="Package\Data Flow to pivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Pivot Default Output"
+              startId="Package\Data Flow to pivot the table data from database\Pivot.Outputs[Pivot Default Output]" />
+            <path
+              refId="Package\Data Flow to pivot the table data from database.Paths[Sort Output]"
+              endId="Package\Data Flow to pivot the table data from database\Pivot.Inputs[Pivot Default Input]"
+              name="Sort Output"
+              startId="Package\Data Flow to pivot the table data from database\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow to Unpivot the table data from database"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2D2059E7-BFD8-4A8F-A917-8AE67AD0666A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow to Unpivot the table data from database"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow to Unpivot the table data from database\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Inputs[Data Conversion Input].Columns[JoiningDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="JoiningDate"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[JoiningDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Inputs[Data Conversion Input].Columns[Salary]"
+                      cachedDataType="cy"
+                      cachedName="Salary"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[Salary]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Output].Columns[uJoiningDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Output].Columns[uJoiningDate]"
+                      name="uJoiningDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[JoiningDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Output].Columns[uSalary]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Output].Columns[uSalary]"
+                      name="uSalary"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[Salary]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Inputs[Data Conversion Input].Columns[Property1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Property1"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Property1]" />
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Inputs[Data Conversion Input].Columns[Value1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Value1"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Value1]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Output].Columns[sProperty1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Output].Columns[sProperty1]"
+                      name="sProperty1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Property1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Output].Columns[sValue1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Output].Columns[sValue1]"
+                      name="sValue1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Value1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSalesPersonDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.Customer]"
+                  connectionManagerRefId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.Customer]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesPersonID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonID"
+                      externalMetadataColumnId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[SalesPersonID]" />
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalesPersonName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SalesPersonName"
+                      externalMetadataColumnId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[SalesPersonName]" />
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sProperty1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="sProperty1"
+                      externalMetadataColumnId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property]"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Output].Columns[sProperty1]" />
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sValue1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="sValue1"
+                      externalMetadataColumnId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Output].Columns[sValue1]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DimSalesPersonDetailsID]"
+                      dataType="i4"
+                      name="DimSalesPersonDetailsID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Property" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isActive]"
+                      dataType="i4"
+                      name="isActive" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SalesPersonName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source for Unpivot"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSalesPersonPivotDetails]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.Customer]"
+                  connectionManagerRefId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.Customer]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[SalesPersonID]"
+                      name="SalesPersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonName]"
+                      length="200"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[SalesPersonName]"
+                      name="SalesPersonName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[JoiningDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].ExternalColumns[JoiningDate]"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[JoiningDate]"
+                      name="JoiningDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[Salary]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].ExternalColumns[Salary]"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[Salary]"
+                      name="Salary"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].ExternalColumns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SalesPersonName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].ExternalColumns[JoiningDate]"
+                      dataType="dbTimeStamp"
+                      name="JoiningDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].ExternalColumns[Salary]"
+                      dataType="cy"
+                      name="Salary" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[SalesPersonID]"
+                      name="SalesPersonID" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[SalesPersonName]"
+                      name="SalesPersonName" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[JoiningDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[JoiningDate]"
+                      name="JoiningDate" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[Salary]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[Salary]"
+                      name="Salary" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow to Unpivot the table data from database\Unpivot"
+              componentClassID="Microsoft.UnPivot"
+              contactInfo="Unpivot;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Expands an un-normalized data flow into a more normalized version. Values from multiple columns of a single record expand to multiple records in a single column. For example, expand a table that lists athletic scores with a column for each game to more records and a single score column."
+              name="Unpivot">
+              <inputs>
+                <input
+                  refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Inputs[Unpivot Input]"
+                  hasSideEffects="true"
+                  name="Unpivot Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Inputs[Unpivot Input].Columns[uJoiningDate]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="uJoiningDate"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Output].Columns[uJoiningDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                          name="DestinationColumn">#{Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Value1]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">JoiningDate</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Inputs[Unpivot Input].Columns[uSalary]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="uSalary"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Output].Columns[uSalary]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                          name="DestinationColumn">#{Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Value1]}</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue">Salary</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Inputs[Unpivot Input].Columns[SalesPersonID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonID"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[SalesPersonID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                          name="DestinationColumn">#{Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[SalesPersonID]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Inputs[Unpivot Input].Columns[SalesPersonName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SalesPersonName"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[SalesPersonName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                          name="DestinationColumn">#{Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[SalesPersonName]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Inputs[Unpivot Input].Columns[JoiningDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="JoiningDate"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[JoiningDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                          name="DestinationColumn">#{Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[JoiningDate]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Inputs[Unpivot Input].Columns[Salary]"
+                      cachedDataType="cy"
+                      cachedName="Salary"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output].Columns[Salary]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The lineage ID of the output column that will receive the value from this input column. Or -1 if column's value is not used in output rows."
+                          name="DestinationColumn">#{Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Salary]}</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the value written to the PivotKey column in the output row."
+                          expressionType="Notify"
+                          name="PivotKeyValue" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output]"
+                  name="Unpivot Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Property1]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Property1]"
+                      name="Property1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">true</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Value1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Value1]"
+                      name="Value1">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[SalesPersonID]"
+                      name="SalesPersonID">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[SalesPersonName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[SalesPersonName]"
+                      name="SalesPersonName">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[JoiningDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[JoiningDate]"
+                      name="JoiningDate">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Salary]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output].Columns[Salary]"
+                      name="Salary">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the value in the PivotKeyValue property is written to the column in the new row."
+                          name="PivotKey">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow to Unpivot the table data from database.Paths[Data Conversion Output]"
+              endId="Package\Data Flow to Unpivot the table data from database\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow to Unpivot the table data from database.Paths[Data Conversion Output1]"
+              endId="Package\Data Flow to Unpivot the table data from database\Unpivot.Inputs[Unpivot Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow to Unpivot the table data from database.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow to Unpivot the table data from database\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow to Unpivot the table data from database.Paths[Unpivot Output]"
+              endId="Package\Data Flow to Unpivot the table data from database\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Unpivot Output"
+              startId="Package\Data Flow to Unpivot the table data from database\Unpivot.Outputs[Unpivot Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4E101907-401B-44D4-A5D3-D41EEF361F63}"
+      DTS:From="Package\Data Flow to pivot the table data from database"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow to Unpivot the table data from database" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="305,42"
+          Id="Package\Data Flow to pivot the table data from database"
+          TopLeft="124,49" />
+        <NodeLayout
+          Size="318,42"
+          Id="Package\Data Flow to Unpivot the table data from database"
+          TopLeft="74.5,190.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="276.5,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-43,99.5"
+              Start="0,0"
+              End="-43,92">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.75"
+                    Point2="0,49.75"
+                    Point3="-4,49.75" />
+                  <mssgle:LineSegment
+                    End="-39,49.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39,49.75"
+                    Point2="-43,49.75"
+                    Point3="-43,53.75" />
+                  <mssgle:LineSegment
+                    End="-43,92" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow to pivot the table data from database">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow to pivot the table data from database\OLE DB Source"
+          TopLeft="35,5.5" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Data Flow to pivot the table data from database\Pivot"
+          TopLeft="59,209.5" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\Data Flow to pivot the table data from database\Sort"
+          TopLeft="61,107.5" />
+        <EdgeLayout
+          Id="Package\Data Flow to pivot the table data from database.Paths[OLE DB Source Output]"
+          TopLeft="110,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow to pivot the table data from database.Paths[Sort Output]"
+          TopLeft="110,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow to pivot the table data from database\OLE DB Destination"
+          TopLeft="24.5,326.5" />
+        <EdgeLayout
+          Id="Package\Data Flow to pivot the table data from database.Paths[Pivot Default Output]"
+          TopLeft="110,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="IF you have duplicate records in &quot;Set Key&quot; column which you have provided in Pivot task, you can use Aggregation task&#xD;&#xA;to make it group by and get the sum of it to get desierd output, but in that case you should have only one type of data&#xD;&#xA;in that column otherwise agreegate task will through eror. here in my case i have mixed up values in Value column so i didnt used here."
+          ParentId="Package\Data Flow to pivot the table data from database"
+          FontInfo="{assembly:Null}"
+          Size="678,88"
+          Id="0b5d7f2d-bd39-422e-a414-e417d1bb1735"
+          TopLeft="164.5,198.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow to pivot the table data from database\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow to pivot the table data from database\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Data Flow to Unpivot the table data from database">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot"
+          TopLeft="60,61" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow to Unpivot the table data from database\OLE DB Destination"
+          TopLeft="49,295" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Data Flow to Unpivot the table data from database\Data Conversion"
+          TopLeft="420,64" />
+        <EdgeLayout
+          Id="Package\Data Flow to Unpivot the table data from database.Paths[OLE DB Source Output]"
+          TopLeft="266,83.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="154,0"
+              Start="0,0"
+              End="146.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="146.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="115,42"
+          Id="Package\Data Flow to Unpivot the table data from database\Unpivot"
+          TopLeft="300,182" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Data Flow to Unpivot the table data from database\Data Conversion 1"
+          TopLeft="641,249" />
+        <EdgeLayout
+          Id="Package\Data Flow to Unpivot the table data from database.Paths[Unpivot Output]"
+          TopLeft="357.5,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="366,25"
+              Start="0,0"
+              End="366,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="4,12.5" />
+                  <mssgle:LineSegment
+                    End="362,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="362,12.5"
+                    Point2="366,12.5"
+                    Point3="366,16.5" />
+                  <mssgle:LineSegment
+                    End="366,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow to Unpivot the table data from database.Paths[Data Conversion Output]"
+          TopLeft="641,270">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-421,46"
+              Start="0,0"
+              End="-413.5,46">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-206.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-206.5,0"
+                    Point2="-210.5,0"
+                    Point3="-210.5,4" />
+                  <mssgle:LineSegment
+                    End="-210.5,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-210.5,42"
+                    Point2="-210.5,46"
+                    Point3="-214.5,46" />
+                  <mssgle:LineSegment
+                    End="-413.5,46" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow to Unpivot the table data from database.Paths[Data Conversion Output1]"
+          TopLeft="498,106">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-140.5,76"
+              Start="0,0"
+              End="-140.5,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="-4,38" />
+                  <mssgle:LineSegment
+                    End="-136.5,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-136.5,38"
+                    Point2="-140.5,38"
+                    Point3="-140.5,42" />
+                  <mssgle:LineSegment
+                    End="-140.5,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Conversion is used here because in database JoiningDate and Salary are not string data type"
+          ParentId="Package\Data Flow to Unpivot the table data from database"
+          FontInfo="{assembly:Null}"
+          Size="517,60"
+          Id="d1ee612d-095e-4980-9e78-30d2fecd6945"
+          TopLeft="580,58" />
+        <AnnotationLayout
+          Text="Here conversion is used because, unPivot task will create unicode data after unpivoting,&#xD;&#xA;and in database we have these columns as string, "
+          ParentId="Package\Data Flow to Unpivot the table data from database"
+          FontInfo="{assembly:Null}"
+          Size="491,60"
+          Id="013a3b9d-a1ca-4a27-a93b-b343dba04b6b"
+          TopLeft="657,324" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow to Unpivot the table data from database\OLE DB Source for Unpivot">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow to Unpivot the table data from database\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

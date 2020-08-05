@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="RMSCOMPUTER_RMSSQL.Customer"
+  DTS:DTSID="{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=RMSCOMPUTER\RMSSQL;Initial Catalog=Customer;Integrated Security=True;Application Name=SSIS-CustomerIntegration-{7AAE77E7-67C7-4D3A-A8CA-DFC1D623E10C}RMSCOMPUTER\RMSSQL.Customer;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

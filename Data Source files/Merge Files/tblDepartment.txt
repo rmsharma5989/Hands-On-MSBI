@@ -1,0 +1,5 @@
+DeptID,DeptName
+1,IT
+2,HR
+3,Account
+4,Marketing
