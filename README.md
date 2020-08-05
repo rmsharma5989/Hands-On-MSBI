@@ -1,1 +1,4 @@
-# Hands-On-MSBI
+Some Hands-on Practice
+- MSBI
+- Data Mining
+- Data Warehouse
