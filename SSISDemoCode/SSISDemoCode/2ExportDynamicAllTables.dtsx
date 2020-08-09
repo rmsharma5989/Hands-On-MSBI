@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="2ExportDynamicAllTables"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{E9E020F7-4BCB-4739-93E1-222BAAF90337}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{C3B93F9C-5576-43AB-8EFB-5D4356BBDA47}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -54,7 +54,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="Password">
       <DTS:VariableValue
-        DTS:DataType="8">Rshrma@5989</DTS:VariableValue>
+        DTS:DataType="8">password</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -63,7 +63,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="PathToSaveTables">
       <DTS:VariableValue
-        DTS:DataType="8">E:\MSBI-Git\Export\DynamicTablesExport</DTS:VariableValue>
+        DTS:DataType="8">pathtosavethefile</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -72,7 +72,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="ServerName">
       <DTS:VariableValue
-        DTS:DataType="8">RMSCOMPUTER\RMSSQL</DTS:VariableValue>
+        DTS:DataType="8">servername</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
