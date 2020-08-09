@@ -6,21 +6,21 @@
   DTS:CreatorComputerName="RMSCOMPUTER"
   DTS:CreatorName="RMSCOMPUTER\44QRQZ1"
   DTS:DelayValidation="True"
-  DTS:DTSID="{7D42E6EA-6661-44AA-8DBC-FE0CB8E0476D}"
+  DTS:DTSID="{C02B262F-26E9-4C6C-9EFF-A2D2A458132E}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.123"
   DTS:LocaleID="1033"
   DTS:ObjectName="2ExportDynamicAllTables"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{FD2F4762-C278-42C2-954A-52923C2551F4}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{E9E020F7-4BCB-4739-93E1-222BAAF90337}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.SSISDemos]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{75E294C8-857E-4DEF-B12D-D5DBD10E255E}"
+      DTS:DTSID="{9CBDB72A-FD13-4F7C-B625-DE5B79CA57B2}"
       DTS:ObjectName="RMSCOMPUTER\RMSSQL.SSISDemos">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -31,7 +31,7 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{C2A1E639-E45F-41C6-BC49-4AEED8020872}"
+      DTS:DTSID="{E61EAF5A-0D92-4E23-8318-1B183F1195F0}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ListOfTables">
@@ -49,7 +49,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{BC8464AC-EF98-41CB-A16F-90C0F4E37EAB}"
+      DTS:DTSID="{19E19B98-4B9E-4E22-A4D4-F6CBBF74585A}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="Password">
@@ -58,7 +58,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{55D4C338-6A10-46B3-B5D3-A740C93E7A2D}"
+      DTS:DTSID="{C051B8B3-DF41-4403-9BC3-625491FE4D2A}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="PathToSaveTables">
@@ -67,7 +67,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{4FF28F95-BF00-4233-BBB4-773B7A1CA48B}"
+      DTS:DTSID="{1822B449-BD28-4E77-AFE8-7E43BF2E0F76}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="ServerName">
@@ -76,7 +76,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CE13155F-EFB8-464E-BD7E-566B764F1AF8}"
+      DTS:DTSID="{9327DC54-7AD0-4ADF-AD74-1C624F0BBF93}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="TableName">
@@ -86,7 +86,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{29E4E5E8-0BCA-44B4-B716-6B5622DEBB63}"
+      DTS:DTSID="{3051BBE5-0882-44EB-9C08-67623D1903A9}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="UserName">
@@ -142,7 +142,7 @@
       DTS:refId="Package\Sequence Container"
       DTS:CreationName="STOCK:SEQUENCE"
       DTS:Description="Sequence Container"
-      DTS:DTSID="{5C042680-C20E-4833-9FED-52BB8405E5D9}"
+      DTS:DTSID="{3F817090-6DF7-4B62-B216-73739B513A19}"
       DTS:ExecutableType="STOCK:SEQUENCE"
       DTS:FailPackageOnFailure="True"
       DTS:FailParentOnFailure="True"
@@ -157,7 +157,7 @@
           DTS:refId="Package\Sequence Container\Execute SQL Task - Get list of tables"
           DTS:CreationName="Microsoft.ExecuteSQLTask"
           DTS:Description="Execute SQL Task"
-          DTS:DTSID="{A5023A44-D1D5-4B97-85EE-4D4D5647F86E}"
+          DTS:DTSID="{B650FD33-1EB3-478E-A12D-1D6CFE034993}"
           DTS:ExecutableType="Microsoft.ExecuteSQLTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Execute SQL Task - Get list of tables"
@@ -169,7 +169,7 @@
             DTS:LoggingMode="2" />
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
-              SQLTask:Connection="{75E294C8-857E-4DEF-B12D-D5DBD10E255E}"
+              SQLTask:Connection="{9CBDB72A-FD13-4F7C-B625-DE5B79CA57B2}"
               SQLTask:SqlStatementSource="select TABLE_NAME from INFORMATION_SCHEMA.TABLES"
               SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ResultBinding
@@ -182,14 +182,14 @@
           DTS:refId="Package\Sequence Container\Foreach Loop Container"
           DTS:CreationName="STOCK:FOREACHLOOP"
           DTS:Description="Foreach Loop Container"
-          DTS:DTSID="{4812AFAA-E9C5-45D3-AE2B-56A1F953DAE6}"
+          DTS:DTSID="{EB925B09-31A1-489A-B7FB-0B2072982766}"
           DTS:ExecutableType="STOCK:FOREACHLOOP"
           DTS:LocaleID="-1"
           DTS:ObjectName="Foreach Loop Container">
           <DTS:ForEachEnumerator
             DTS:CreationName="Microsoft.ForEachADOEnumerator"
-            DTS:DTSID="{65A64020-731F-4EF9-9142-1757861CF3C7}"
-            DTS:ObjectName="{65A64020-731F-4EF9-9142-1757861CF3C7}">
+            DTS:DTSID="{F4713678-CD9B-4757-944A-E9C250345E19}"
+            DTS:ObjectName="{F4713678-CD9B-4757-944A-E9C250345E19}">
             <DTS:ObjectData>
               <FEEADO
                 EnumType="EnumerateRowsInFirstTable"
@@ -205,7 +205,7 @@
               DTS:refId="Package\Sequence Container\Foreach Loop Container\Execute SQL Task - BCP Command"
               DTS:CreationName="Microsoft.ExecuteSQLTask"
               DTS:Description="Execute SQL Task"
-              DTS:DTSID="{3D774BD0-2C0C-4BA1-B9F2-2C4C4674E434}"
+              DTS:DTSID="{61D1AC1A-EB2C-493C-B3BE-81D51B88A0AB}"
               DTS:ExecutableType="Microsoft.ExecuteSQLTask"
               DTS:LocaleID="-1"
               DTS:ObjectName="Execute SQL Task - BCP Command"
@@ -257,34 +257,34 @@
               </DTS:LoggingOptions>
               <DTS:ObjectData>
                 <SQLTask:SqlTaskData
-                  SQLTask:Connection="{75E294C8-857E-4DEF-B12D-D5DBD10E255E}"
-                  SQLTask:SqlStatementSource="USE [SSISDemos]&#xA;&#xA;DECLARE @Command NVARCHAR (1000)&#xA;DECLARE @PathToSaveTables NVARCHAR (1000) &#xA;DECLARE @TableName NVARCHAR (100) &#xA;DECLARE @ServerName NVARCHAR (100) &#xA;DECLARE @UserName NVARCHAR (100) &#xA;DECLARE @Password NVARCHAR (100) &#xA;&#xA;SET @Command = 'BCP SSISDemos.dbo.'+@TableName+'  OUT  '+@PathToSaveTables+'\'+ @TableName +'.xlsx -c -S'+ @ServerName +' -U'+@UserName+' -P'+ @Password +''&#xA;&#xA;EXEC xp_cmdshell @Command" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  SQLTask:Connection="{9CBDB72A-FD13-4F7C-B625-DE5B79CA57B2}"
+                  SQLTask:SqlStatementSource="USE [SSISDemos]&#xA;&#xA;DECLARE @Command NVARCHAR (1000)&#xA;DECLARE @PathToSaveTables NVARCHAR (1000) = ?&#xA;DECLARE @TableName NVARCHAR (100) = ?&#xA;DECLARE @ServerName NVARCHAR (100) = ?&#xA;DECLARE @UserName NVARCHAR (100) = ?&#xA;DECLARE @Password NVARCHAR (100) = ?&#xA;&#xA;SET @Command = 'BCP SSISDemos.dbo.'+@TableName+'  OUT  '+@PathToSaveTables+'\'+ @TableName +'.txt -c -S'+ @ServerName +' -U'+@UserName+' -P'+ @Password +''&#xA;&#xA;EXEC xp_cmdshell @Command" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
                   <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="@Password"
+                    SQLTask:ParameterName="4"
                     SQLTask:DtsVariableName="User::Password"
                     SQLTask:ParameterDirection="Input"
                     SQLTask:DataType="130"
                     SQLTask:ParameterSize="100" />
                   <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="@PathToSaveTables"
+                    SQLTask:ParameterName="0"
                     SQLTask:DtsVariableName="User::PathToSaveTables"
                     SQLTask:ParameterDirection="Input"
                     SQLTask:DataType="130"
                     SQLTask:ParameterSize="100" />
                   <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="@ServerName"
+                    SQLTask:ParameterName="2"
                     SQLTask:DtsVariableName="User::ServerName"
                     SQLTask:ParameterDirection="Input"
                     SQLTask:DataType="130"
                     SQLTask:ParameterSize="100" />
                   <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="@UserName"
+                    SQLTask:ParameterName="3"
                     SQLTask:DtsVariableName="User::UserName"
                     SQLTask:ParameterDirection="Input"
                     SQLTask:DataType="130"
                     SQLTask:ParameterSize="100" />
                   <SQLTask:ParameterBinding
-                    SQLTask:ParameterName="@TableName"
+                    SQLTask:ParameterName="1"
                     SQLTask:DtsVariableName="User::TableName"
                     SQLTask:ParameterDirection="Input"
                     SQLTask:DataType="130"
@@ -296,8 +296,8 @@
           <DTS:ForEachVariableMappings>
             <DTS:ForEachVariableMapping
               DTS:CreationName=""
-              DTS:DTSID="{FF7F6978-5E97-49ED-9EB7-E284A5C8C8E7}"
-              DTS:ObjectName="{FF7F6978-5E97-49ED-9EB7-E284A5C8C8E7}"
+              DTS:DTSID="{9E771528-BB95-4BFF-A16F-BBBD5024132C}"
+              DTS:ObjectName="{9E771528-BB95-4BFF-A16F-BBBD5024132C}"
               DTS:ValueIndex="0"
               DTS:VariableName="User::TableName" />
           </DTS:ForEachVariableMappings>
@@ -307,7 +307,7 @@
         <DTS:PrecedenceConstraint
           DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
           DTS:CreationName=""
-          DTS:DTSID="{E23FDF0A-48BB-4B07-8A2D-6FDB641356BF}"
+          DTS:DTSID="{E3DAFB3E-2976-4481-A201-9DE6EC67B6E6}"
           DTS:From="Package\Sequence Container\Execute SQL Task - Get list of tables"
           DTS:LogicalAnd="True"
           DTS:ObjectName="Constraint"

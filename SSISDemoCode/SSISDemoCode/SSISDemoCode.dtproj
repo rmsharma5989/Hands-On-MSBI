@@ -28,6 +28,11 @@
           <FullPath>3ParallelProcessing.dtsx</FullPath>
           <References />
         </DtsPackage>
+        <DtsPackage FormatVersion="0">
+          <Name>4UserIntractivePackage.dtsx</Name>
+          <FullPath>4UserIntractivePackage.dtsx</FullPath>
+          <References />
+        </DtsPackage>
       </DTSPackages>
     </Manifest>
   </DeploymentModelSpecificContent>
