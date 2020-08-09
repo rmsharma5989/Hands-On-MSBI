@@ -1,0 +1,10 @@
+NOTEL:- to run the cmd commands in SQL Server make sure you have "XPCmdShellEnabled"  property set to True at 
+		SQL Server -> facets -> Surface area configuraiton -> ( last option in the properties )
+
+USE [SSISDemos]
+
+DECLARE @Command VARCHAR (1000)
+SET @Command = 'BCP SSISDemos.dbo.EMP_A OUT E:\MSBI-Git\SSISDemoCode\SSISDemoCode\DynamicExportedData.txt -c -SRMSCOMPUTER\RMSSQL -Usa -PRshrma@5989'
+
+EXEC xp_cmdshell @Command
+

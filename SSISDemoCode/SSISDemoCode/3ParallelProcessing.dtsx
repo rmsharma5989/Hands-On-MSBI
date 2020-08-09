@@ -1,0 +1,423 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/9/2020 6:21:32 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RMSCOMPUTER"
+  DTS:CreatorName="RMSCOMPUTER\44QRQZ1"
+  DTS:DTSID="{B7B6C915-26E4-4647-8349-9FA6B6996FCE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="3ParallelProcessing"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{8522096F-A940-4BEC-86EC-9D02153B463C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.SSISDemos]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{02C2CC9E-2511-4F4E-9DAF-364AEBB7383A}"
+      DTS:ObjectName="RMSCOMPUTER\RMSSQL.SSISDemos">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=RMSCOMPUTER\RMSSQL;Initial Catalog=SSISDemos;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.SSISDemos 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+      DTS:ObjectName="RMSCOMPUTER\RMSSQL.SSISDemos 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=RMSCOMPUTER\RMSSQL;Initial Catalog=SSISDemos;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{91255AC3-FA4D-46ED-B2A2-5B41612225D2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="logid">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{700D70D0-AF97-46E9-9181-9292E2F9AA74}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B8B4B84C-2894-4859-B204-3F90E2B48573}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process1' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 10"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D1CE84E5-5A08-4F5D-8D0A-5693BBBFF3C7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 10"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process10' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 2"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{758E5038-7E12-42A6-9DC5-1F38A11ED82D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 2"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process2' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 3"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A6F78F19-D3F0-4A20-805E-2CC74D25DAEF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 3"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="6">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process3' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 4"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8674FBB3-85A0-4F4D-B84C-15B4EECFD4BA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 4"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="7">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process4' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 5"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{023779A4-43B5-4C6D-8068-237D20F9894A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 5"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="8">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process5' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 6"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{43449872-A905-45ED-9FC8-733D0E98AF6D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 6"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="9">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process6' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 7"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FB5393FD-445D-462D-956B-C871927D5864}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 7"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process7' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 8"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{5B861310-2F5D-4838-893C-50D6F352A268}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 8"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process8' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Process 9"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{F07E8CC0-E81C-4425-877B-D6D9B5672205}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Process 9"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+              SQLTask:SqlStatementSource="declare @pid int&#xA;while @pid &lt;= 20000&#xA;begin&#xA;&#x9;insert into processData&#xA;&#x9;select 'process9' , getdate()&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set end time in log table for a process ID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1E170DB1-D739-49EC-AC49-5106C8C50E9F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set end time in log table for a process ID"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+          SQLTask:SqlStatementSource="declare @logid int&#xA;&#xA;UPDATE ParallelProcessing_LogTime SET Endtime = GETDATE(), timetaken = CONVERT(VARCHAR, DATEADD(SECOND,DATEDIFF(SECOND,StartTime,GETDATE()),0) ,108) WHERE ID = @logid" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@logid"
+            SQLTask:DtsVariableName="User::logid"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="131"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set start time in log table for a process ID"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EAA3007D-BDCF-425A-8553-F63F69765487}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set start time in log table for a process ID"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{239E8B8A-84F5-472D-BCED-857BB7E71C7D}"
+          SQLTask:SqlStatementSource="declare @logid int&#xA;&#xA;UPDATE ParallelProcessing_LogTime SET StartTime = GETDATE() WHERE ID = @logid" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@logid"
+            SQLTask:DtsVariableName="User::logid"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="131"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BF1BE2C7-7330-4552-A760-0843A9F2DBF8}"
+      DTS:From="Package\Set start time in log table for a process ID"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Sequence Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{929B4370-D658-4EC3-AE79-861FFF993413}"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Set end time in log table for a process ID" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\Process 1"
+          TopLeft="33,12" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Sequence Container\Process 10"
+          TopLeft="36,123" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\Process 2"
+          TopLeft="232,17" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\Process 3"
+          TopLeft="439,20" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\Process 4"
+          TopLeft="652,17" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\Process 5"
+          TopLeft="879,25" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\Process 6"
+          TopLeft="874,124" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\Process 7"
+          TopLeft="659,118" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\Process 8"
+          TopLeft="447,127" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Sequence Container\Process 9"
+          TopLeft="234,125" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1028,193"
+          Size="1028,236"
+          Id="Package\Sequence Container"
+          TopLeft="88,112" />
+        <NodeLayout
+          Size="273,42"
+          Id="Package\Set end time in log table for a process ID"
+          TopLeft="469,397" />
+        <NodeLayout
+          Size="277,42"
+          Id="Package\Set start time in log table for a process ID"
+          TopLeft="470,32" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="605.25,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="603.75,348">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Results in this experiment may vary if you have high performance system."
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="416,40"
+          Id="8451d9bf-13b4-46b4-a414-848998e47a6e"
+          TopLeft="12,22" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,560 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/9/2020 2:29:22 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RMSCOMPUTER"
+  DTS:CreatorName="RMSCOMPUTER\44QRQZ1"
+  DTS:DTSID="{EF478CA1-EEED-41C9-99FC-FAA72C979759}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{8CF4FD96-2733-4D6F-8248-D0408FFD2D9B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{004BEB5C-9980-4980-A050-74284C470558}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::FilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\MSBI-Git\Data Source files\1A.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.SSISDemos]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EF95E56F-CE83-4115-AB4A-ECC9098CE9AB}"
+      DTS:ObjectName="RMSCOMPUTER\RMSSQL.SSISDemos">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=RMSCOMPUTER\RMSSQL;Initial Catalog=SSISDemos;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="E:\MSBI-Git\SSISDemoCode\SSISDemoCode\importExcelPKGConfig.dtsConfig"
+      DTS:ConfigurationType="1"
+      DTS:CreationName=""
+      DTS:DTSID="{3A893098-2DA8-448D-A956-0EA5987CE82A}"
+      DTS:ObjectName="Configuration 1" />
+  </DTS:Configurations>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8B6DEA73-CF92-46B1-A416-26E1F74B08C2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilePath">
+      <DTS:VariableValue
+        DTS:DataType="8">E:\MSBI-Git\Data Source files\1A.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{411BB20B-382D-479A-B0CB-E0377DDE615E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableName">
+      <DTS:VariableValue
+        DTS:DataType="8">EMP_A</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container - ImportExcel"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A24B515A-3E4C-4A3F-B3F4-069670DBF1F4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container - ImportExcel">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{30A7E899-E5D6-488B-BFB2-6B4C058118C8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task - Import data from excel"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Name"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].Columns[Name]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Output].Columns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="255"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].Columns[Name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Sheet1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].Columns[ID]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID]"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].Columns[ID]"
+                          name="ID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Name]"
+                          length="255"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[ID]"
+                          dataType="r8"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="255"
+                          name="Name" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Error Output].Columns[ID]"
+                          dataType="r8"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Error Output].Columns[ID]"
+                          name="ID" />
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::TableName</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.SSISDemos]"
+                      connectionManagerRefId="Package.ConnectionManagers[RMSCOMPUTER\RMSSQL.SSISDemos]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                          cachedDataType="r8"
+                          cachedName="ID"
+                          externalMetadataColumnId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output].Columns[ID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="255"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Output].Columns[Name]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Dept]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Dept" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel.Paths[Data Conversion Output]"
+                  endId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel.Paths[Excel Source Output]"
+                  endId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Excel Source Output"
+                  startId="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="270,42"
+          Id="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel"
+          TopLeft="48,22" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="381,119"
+          Size="381,162"
+          Id="Package\Sequence Container - ImportExcel"
+          TopLeft="252,19" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source"
+          TopLeft="151,33" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination"
+          TopLeft="605,34" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Data Conversion"
+          TopLeft="367,35" />
+        <EdgeLayout
+          Id="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel.Paths[Excel Source Output]"
+          TopLeft="290,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="77,0"
+              Start="0,0"
+              End="69.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel.Paths[Data Conversion Output]"
+          TopLeft="523,55.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82,0"
+              Start="0,0"
+              End="74.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="74.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container - ImportExcel\Data Flow Task - Import data from excel\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
