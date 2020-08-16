@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/11/2020 11:23:00 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RMSCOMPUTER"
+  DTS:CreatorName="RMSCOMPUTER\44QRQZ1"
+  DTS:DTSID="{671D8C6B-8E12-465D-9DB6-DCCA003E5F7C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="11ParallelDataLoad_60MRecords"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{E17C4558-2733-4B59-8391-CA1D49C02CDB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <AnnotationLayout
+          Text=""
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="29,40"
+          Id="279a8d25-8d37-4cc8-b807-9fe37ac199e6"
+          TopLeft="5.5,5.5" />
+        <AnnotationLayout
+          Text="Three ways -&#xA;1. Sequental approach for all three staging tables ( 20 Million each)&#xA;2. Three data flow tasks in parallel&#xA;3. One data flow task with three paralel theads"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="383,88"
+          Id="25c77cba-93a1-4b4c-af23-791f114d35ca"
+          TopLeft="955,5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

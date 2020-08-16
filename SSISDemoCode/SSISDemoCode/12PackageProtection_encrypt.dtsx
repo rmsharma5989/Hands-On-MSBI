@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/11/2020 12:39:22 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="RMSCOMPUTER"
+  DTS:CreatorName="RMSCOMPUTER\44QRQZ1"
+  DTS:DTSID="{639782D3-07E8-4AB7-9EED-1CC3F050A420}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="12PackageProtection_encrypt"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{4042F23C-FBEF-41D5-80D2-F0C340954C01}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <AnnotationLayout
+          Text="we can encrypt the package with the password, here are the variaous password protection level defined in SSIS&#xD;&#xA;&#xD;&#xA;DontSaveSensitive:- package will not store any sensitive information&#xD;&#xA;EncryptAllWithPassword:- package will be incrypted with given password, then on executing and loading in project it will ask for password.&#xD;&#xA;EncryptSensitiveWithPassword:- package will encrypt the sensitive information only with the password.&#xD;&#xA;EncryptAllWithUserKey:- encrypt the complete package with user key who has created the package.&#xD;&#xA;EncryptSensitiveWIthUseKey:- encrypt only xensitive information with the user key, who has created the password.&#xD;&#xA; /*************ServerStorage:- secrity will be based on the SQL server users authorization level.*****************/"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="760,152"
+          Id="05ace7a9-8875-4adf-bc4a-2902546efbb0"
+          TopLeft="45,21" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

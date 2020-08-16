@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/9/2020 2:29:22 PM"
@@ -6,14 +6,13 @@
   DTS:CreatorComputerName="RMSCOMPUTER"
   DTS:CreatorName="RMSCOMPUTER\44QRQZ1"
   DTS:DTSID="{EF478CA1-EEED-41C9-99FC-FAA72C979759}"
-  DTS:EnableConfig="True"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.123"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
   DTS:VersionBuild="12"
-  DTS:VersionGUID="{8CF4FD96-2733-4D6F-8248-D0408FFD2D9B}">
+  DTS:VersionGUID="{DAD3B16E-74F8-440A-9E49-7B76F414FDC3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,7 +25,7 @@
         DTS:Name="ExcelFilePath">@[User::FilePath]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\MSBI-Git\Data Source files\1A.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=E:\MSBI-Git\Data Source files\1A.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -40,18 +39,32 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Configurations>
-    <DTS:Configuration
-      DTS:ConfigurationString="E:\MSBI-Git\SSISDemoCode\SSISDemoCode\importExcelPKGConfig.dtsConfig"
-      DTS:ConfigurationType="1"
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
       DTS:CreationName=""
-      DTS:DTSID="{3A893098-2DA8-448D-A956-0EA5987CE82A}"
-      DTS:ObjectName="Configuration 1" />
-  </DTS:Configurations>
+      DTS:DataType="8"
+      DTS:DTSID="{E346FB6A-F193-44B3-B537-1D28CD5905A0}"
+      DTS:ObjectName="FilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">E:\MSBI-Git\Data Source files\1A.xlsx</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DC9FD51A-20BE-47EF-9C6E-14C063C7C5C9}"
+      DTS:ObjectName="TableName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">EMP_A</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{8B6DEA73-CF92-46B1-A416-26E1F74B08C2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::FilePath]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="FilePath">
@@ -61,6 +74,8 @@
     <DTS:Variable
       DTS:CreationName=""
       DTS:DTSID="{411BB20B-382D-479A-B0CB-E0377DDE615E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::TableName]"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="TableName">

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="8/9/2020 5:04:13 PM"
@@ -13,7 +13,7 @@
   DTS:ObjectName="2ExportDynamicAllTables"
   DTS:PackageType="5"
   DTS:VersionBuild="31"
-  DTS:VersionGUID="{C3B93F9C-5576-43AB-8EFB-5D4356BBDA47}">
+  DTS:VersionGUID="{D350B0ED-6B34-4F6D-954A-AEDD4C5F7595}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

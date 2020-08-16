@@ -1,0 +1,5 @@
+Name,ProductID,Qty,Price,Tax,Discount,TotalAmount,SaleDate,PaymentMode
+Dipak,2,10,80.00,30.00,45.00,785.00,08/02/2020,Check
+Suraj,3,20,95.00,25.00,44.00,1881.00,08/02/2020,Card
+Ghanshyam,4,8,120.00,90.00,10.00,1040.00,08/02/2020,Cash
+Ghanshyam,5,50,60.00,15.00,60.00,2955.00,08/02/2020,Cash

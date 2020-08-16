@@ -1,0 +1,5 @@
+Name,ProductID,Qty,Price,Tax,Discount,TotalAmount,SaleDate,PaymentMode
+Akash,2,4,30.00,5.00,2.00,123.00,08/01/2020,Cash
+Vijay,1,15,160.00,15.00,5.00,2410.00,08/01/2020,Cash
+Vijay,6,4,145.00,80.00,23.00,637.00,08/01/2020,Cash
+Amit,5,9,20.00,40.00,48.00,172.00,08/01/2020,Card
